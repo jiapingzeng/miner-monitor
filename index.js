@@ -38,7 +38,7 @@ for (coin of process.argv.slice(2)) {
             'coin': coin.toUpperCase(),
             'process': spawn(paths[coin])
         })
-        coins.push(coin)
+        coins.push(coin.toUpperCase())
     }
     else console.log(`no path specified for ${coin}, skipping`)
 }

@@ -74,9 +74,9 @@
             socket.on('stdout', (data) => {
                 console.log(`${data.coin}: ${data.msg}`)
 
-                var coin_window = document.getElementById(`${coin}-window`)
+                var coin_window = document.getElementById(`${data.coin}-window`)
                 coin_window.innerHTML += `<li>${data.msg}</li>`
-                all_window.innerHTML += `<li>$${coin.toUpperCase()}: ${data.msg}</li>`
+                all_window.innerHTML += `<li>$${data.coin.toUpperCase()}: ${data.msg}</li>`
             })
 
             socket.on('stderr', (data) => {
