@@ -23,8 +23,9 @@ const port = 3003
 // *****
 
 const paths = {
-    'avn': '',
-    'eth': ''
+    'avn': path.join('C:/mining/cpuminer-opt-win/miner-avian-minotaurx.bat'),
+    'eth': path.join('C:/mining/t-rex-0.24.8-win/start.bat'),
+    'rtm': path.join('C:/mining/xmrig-6.16.0/start.cmd')
 }
 
 const coins = []
@@ -52,12 +53,12 @@ app.get('/', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-    console.log('connected')
+    console.log('client connected')
 
     socket.emit('coins', coins)
 })
 
-for (miner of miners) {
+for (let miner of miners) {
     miner.process.stdout.on('data', (data) => {
         let msg = Buffer.from(data).toString()
         console.log('stdout', msg)
